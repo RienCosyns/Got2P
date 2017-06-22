@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 
+
 middleware.use(bodyParser.json());
 middleware.use(bodyParser.urlencoded({extended: false}));
 
@@ -19,5 +20,13 @@ middleware.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+// Express messages middleware
+
+middleware.use(require("connect-flash")());
+middleware.use(function(req, res, next){
+    res.locals.messages = require("express-messages")(req, res);
+    next();
+});
 
 module.exports = middleware;
