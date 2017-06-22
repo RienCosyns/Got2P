@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    form(method="POST", action="/toilets/add")
+        label Place: 
+        input(type="text", name="place")
+        br
+        label Address: 
+        br
+        label Streetname: 
+        input(type="text", name="street")
+        label Number: 
+        input(type="text", name="number")
+        label Zipcode: 
+        input(type="text", name="zipcode")
+        label City: 
+        input(type="text", name="city")
+        label Country: 
+        input(type="text", name="country")
+        br
+        input(type="submit", value="Add")

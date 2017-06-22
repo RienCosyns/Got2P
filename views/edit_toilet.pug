@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    form(method="POST", action="/toilets/edit/" + toilet._id)
+        label Place: 
+        input(type="text", name="place", value=toilet.place)
+        br
+        label Address: 
+        br
+        label Streetname: 
+        input(type="text", name="street", value=toilet.address.street)
+        label Number: 
+        input(type="text", name="number", value=toilet.address.number)
+        label Zipcode: 
+        input(type="text", name="zipcode", value=toilet.address.zipcode)
+        label City: 
+        input(type="text", name="city", value=toilet.address.city)
+        label Country: 
+        input(type="text", name="country", value=toilet.address.country)
+        br
+        input(type="submit", value="Edit")

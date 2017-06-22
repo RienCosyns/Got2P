@@ -1,12 +1,35 @@
-// require every local module and config
-const express = require("express");
-const app = express();
-const port = 3000;
-
+const path = require("path");
 const config = require("./config/database");
-const toiletViewer = require("./toiletViewer/index");
+const app = require("./config/server");
+const middleware = require("./config/middleware");
+// const toiletViewer = require("./toiletViewer/bundle");
+const toiletViewer = require("toilet-viewer");
+// models
+let Toilet = toiletViewer.model;
+
+// start DB
+config.startDb();
+
+// Load view engine
+app.set("views", path.resolve(__dirname, "./views"));
+app.set("view engine", "pug");
+
+// middleware
+app.use(middleware);
+
+//get home
+app.get("/", function(req, res){
+    Toilet.find({}, function(err, toilets){
+        if (err){
+            console.log(err)
+        }else{
+            res.render("home", {toilets: toilets});
+        }
+    });  
+});
+
+// Route files
+const routes = toiletViewer.routes;
+app.use("/toilets", routes);
 
 //start the server
-app.listen(port, function(){
-    console.log("Server started on server " + port);
-})

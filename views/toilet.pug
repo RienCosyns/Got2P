@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= toilet.place
+    div
+        p= toilet.address.number + " " + toilet.address.street
+        p= toilet.address.zipcode + " " + toilet.address.city
+        p= toilet.address.country
+        button(type="button")
+            a(href="/toilets/edit/" + toilet._id) Edit
+        button(type="button")
+            a.delete-toilet(href="#", data-id=toilet._id) Delete
+    a(href="/") Home

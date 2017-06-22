@@ -1,9 +1,10 @@
 {
-    "name": "toiletviewer",
-    "description": "app to view toilets",
-    "private": true,
+    "name": "toilet-viewer",
+    "version": "1.0.0",
+    "description": "CRUD model for toilets",
+    "author": "Rien Cosyns",
+    "main": "bundle.js",
     "dependencies": {
-        "body-parser": "^1.17.2",
         "express": "^4.15.3",
         "mongoose": "^4.10.7"
     }
