@@ -1,21 +1,26 @@
 extends layout
 
 block content
-    form(method="POST", action="/toilets/edit/" + toilet._id)
+    form.form-group(method="POST", action="/toilets/edit/" + toilet._id)
         label Place: 
-        input(type="text", name="place", value=toilet.place)
+        input.form-control(type="text", name="place", value=toilet.place)
         br
-        label Address: 
+        h3 Address: 
         br
         label Streetname: 
-        input(type="text", name="street", value=toilet.address.street)
+        input.form-control(type="text", name="street", value=toilet.address.street)
         label Number: 
-        input(type="text", name="number", value=toilet.address.number)
+        input.form-control(type="text", name="number", value=toilet.address.number)
         label Zipcode: 
-        input(type="text", name="zipcode", value=toilet.address.zipcode)
+        input.form-control(type="text", name="zipcode", value=toilet.address.zipcode)
         label City: 
-        input(type="text", name="city", value=toilet.address.city)
+        input.form-control(type="text", name="city", value=toilet.address.city)
         label Country: 
-        input(type="text", name="country", value=toilet.address.country)
+        input.form-control(type="text", name="country", value=toilet.address.country)
         br
-        input(type="submit", value="Edit")
+        h3 Review
+        label Image
+        input(type="file", name="image", accept="image/*")
+        input.btn.btn-info(type="Submit", value="Add Image")
+        br
+        input.btn.btn-primary(type="submit", value="Edit")

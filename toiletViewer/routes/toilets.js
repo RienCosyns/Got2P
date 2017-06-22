@@ -10,25 +10,40 @@ router.get("/add", function(req, res){
 
 // Add processing
 router.post("/add", function(req, res){
-    
-    let newToilet = new Toilet();
-    newToilet.place = req.body.place;
-    newToilet.address.street = req.body.street;
-    newToilet.address.number = req.body.number;
-    newToilet.address.zipcode = req.body.zipcode;
-    newToilet.address.city = req.body.city;
-    newToilet.address.country = req.body.country;
+    req.checkBody("place", "Place is required").notEmpty();
+    req.checkBody("street", "Street Name is required").notEmpty();
+    req.checkBody("zipcode", "Zipcode is required").notEmpty();
+    req.checkBody("city", "City is required").notEmpty();
+    req.checkBody("country", "Country is required").notEmpty();
 
-    newToilet.save((err) => {
-        if (err){
-            console.log(err);
-            return;
-        }else{
-            // req.flash("success", "Toilet added");
-            console.log("Toilet added");
-            res.redirect("/");
-        }
-    })
+    let errors = req.validationErrors();
+    console.log("***************" + errors + "****************");
+    if (errors){
+        res.render("add_toilet" ,{
+            title: "Add Toilet",
+            errors: errors
+        })
+    }else{
+        let newToilet = new Toilet();
+        newToilet.place = req.body.place;
+        newToilet.address.street = req.body.street;
+        newToilet.address.number = req.body.number;
+        newToilet.address.zipcode = req.body.zipcode;
+        newToilet.address.city = req.body.city;
+        newToilet.address.country = req.body.country;
+
+        newToilet.save((err) => {
+            console.log("------------------------")
+            if (err){
+                console.log(err);
+                return;
+            }else{
+                req.flash("success", "Toilet added");
+                console.log("Toilet added");
+                res.redirect("/");
+            }
+        })
+    }   
 });
 
 // get a single toilet
@@ -73,6 +88,7 @@ router.post("/edit/:id", function(req, res){
             console.log(err);
             return;
         }else{
+            req.flash("success", "Toilet updated");
             console.log("Toilet updated");
             res.redirect("/toilets/" + req.params.id)
         }
@@ -92,5 +108,7 @@ router.delete("/:id", function(req, res){
         }
     })
 })
+
+
 
 module.exports = router;

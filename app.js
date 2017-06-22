@@ -1,11 +1,11 @@
 const path = require("path");
 const config = require("./config/database");
-const app = require("./config/server");
 const middleware = require("./config/middleware");
-// const toiletViewer = require("./toiletViewer/bundle");
 const toiletViewer = require("toilet-viewer");
+
 // models
 let Toilet = toiletViewer.model;
+const app = require("./config/server");
 
 // start DB
 config.startDb();
