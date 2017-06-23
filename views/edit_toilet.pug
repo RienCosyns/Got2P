@@ -18,9 +18,5 @@ block content
         label Country: 
         input.form-control(type="text", name="country", value=toilet.address.country)
         br
-        h3 Review
-        label Image
-        input(type="file", name="image", accept="image/*")
-        input.btn.btn-info(type="Submit", value="Add Image")
-        br
+        a.btn.btn-info(href="/fileupload/" + toilet._id) Add Image
         input.btn.btn-primary(type="submit", value="Edit")

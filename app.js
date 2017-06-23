@@ -2,7 +2,7 @@ const path = require("path");
 const config = require("./config/database");
 const middleware = require("./config/middleware");
 const toiletViewer = require("toilet-viewer");
-
+const fileUploader = require("file-uploader");
 // models
 let Toilet = toiletViewer.model;
 const app = require("./config/server");
@@ -29,7 +29,8 @@ app.get("/", function(req, res){
 });
 
 // Route files
-const routes = toiletViewer.routes;
-app.use("/toilets", routes);
-
+const toilets = toiletViewer.routes;
+app.use("/toilets", toilets);
+const uploads = fileUploader.routes;
+app.use("/fileupload", uploads);
 //start the server

@@ -30,6 +30,10 @@ let toiletSchema = mongoose.Schema({
     createdAt :{
         type : Date,
         default: Date.now
+    },
+    imagePath: {
+        type: String,
+        default: "https://www.orioncomputerworld.nl/images/noimage.jpg"
     }
 });
 

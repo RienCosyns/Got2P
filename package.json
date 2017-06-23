@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "restart": "rm -rf node_modules/toilet-viewer && npm install toilet-viewer && nodemon app.js"
+    "restart": "rm -rf node_modules/toilet-viewer node_modules/file-uploader && npm install toilet-viewer file-uploader && node app.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "file-uploader": "file:fileUploader",
     "mongoose": "^4.10.7",
     "pug": "^2.0.0-rc.2",
     "toilet-viewer": "file:toiletViewer"

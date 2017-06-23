@@ -1,13 +1,18 @@
 extends layout
 
 block content
-    h1 All Toilets
-    ul
-        each toilet, i in toilets 
-            li
-                a(href="/toilets/" + toilet._id)= toilet.place
-                ul
-                    li= toilet.address.number + " " + toilet.address.street
-                    li= toilet.address.zipcode + " " + toilet.address.city
-                    li= toilet.address.country
-    a(href="/toilets/add") Add Toilet
+    each toilet, i in toilets 
+        .panel.panel-success.toilet-image(style='background-image: url("' + toilet.imagePath + '")')
+            h4.list-group-item-heading= toilet.place
+                .icon-container
+                    a.image-icon(href="/toilets/" + toilet._id)
+                        img(src="https://png.icons8.com/toilet-bowl/ios7/32" title="Toilet Bowl" width="32" height="32")
+                    a.image-icon(href="/fileupload/" + toilet._id)
+                        i(class="fa fa-camera-retro" aria-hidden="true")
+                    a.image-icon(href="#")
+                        span(class="mif-shit")
+            ul.panel-body
+                li.list-group-item= toilet.address.number + " " + toilet.address.street
+                li.list-group-item= toilet.address.zipcode + " " + toilet.address.city
+                li.list-group-item= toilet.address.country
+    
