@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+
 module.exports = {
     database: 'mongodb://localhost:27017/toiletApp',
     secret: 'yoursecret',
 
     startDb: function(){
         // mongodb connection
+        mongoose.Promise = require("bluebird");
         mongoose.connect(this.database);
         let db = mongoose.connection;
 

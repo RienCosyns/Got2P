@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    <div class="stars">
+        form(action="/toilets/rate/" + id, method="POST")
+            fieldset.hygiene
+                h3 Hygiene
+                input(class="star1 starA-5" id="starA-5" type="radio" name="hygiene", value=5)
+                label(class="star1 starA-5" for="starA-5")
+                input(class="star1 starA-4" id="starA-4" type="radio" name="hygiene", value=4)
+                label(class="star1 starA-4" for="starA-4")
+                input(class="star1 starA-3" id="starA-3" type="radio" name="hygiene", value=3)
+                label(class="star1 starA-3" for="starA-3")
+                input(class="star1 starA-2" id="starA-2" type="radio" name="hygiene", value=2)
+                label(class="star1 starA-2" for="starA-2")
+                input(class="star1 starA-1" id="starA-1" type="radio" name="hygiene", value=1)
+                label(class="star1 starA-1" for="starA-1")
+            fieldset.toiletfac
+                h3 Toilet Facilities
+                input(class="star2 starB-5" id="starB-5" type="radio" name="toiletfac", value=5)
+                label(class="star2 starB-5" for="starB-5")
+                input(class="star2 starB-4" id="starB-4" type="radio" name="toiletfac", value=4)
+                label(class="star2 starB-4" for="starB-4")
+                input(class="star2 starB-3" id="starB-3" type="radio" name="toiletfac", value=3)
+                label(class="star2 starB-3" for="starB-3")
+                input(class="star2 starB-2" id="starB-2" type="radio" name="toiletfac", value=2)
+                label(class="star2 starB-2" for="starB-2")
+                input(class="star2 starB-1" id="starB-1" type="radio" name="toiletfac", value=1)
+                label(class="star2 starB-1" for="starB-1")
+            fieldset.handwashing
+                h3 Hand Washing Facilities
+                input(class="star3 starC-5" id="starC-5" type="radio" name="handwashing", value=5)
+                label(class="star3 starC-5" for="starC-5")
+                input(class="star3 starC-4" id="starC-4" type="radio" name="handwashing", value=4)
+                label(class="star3 starC-4" for="starC-4")
+                input(class="star3 starC-3" id="starC-3" type="radio" name="handwashing", value=3)
+                label(class="star3 starC-3" for="starC-3")
+                input(class="star3 starC-2" id="starC-2" type="radio" name="handwashing", value=2)
+                label(class="star3 starC-2" for="starC-2")
+                input(class="star3 starC-1" id="starC-1" type="radio" name="handwashing", value=1)
+                label(class="star3 starC-1" for="starC-1")
+            hr
+            fieldset.comments
+                label(for="commentsection") Comments
+                br
+                textarea(type="text", id="commentsection", name="comments", placeholder="Please leave your comments here")
+                br
+                label Name 
+                input.form-control(type="text", name="ratedBy", placeholder="John Doe")
+                br
+            input.btn.btn-primary(type="submit")
+        </form>
+    </div>
+        

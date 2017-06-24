@@ -8,9 +8,12 @@ const path = require("path");
 const session = require("express-session");
 const expressValidator = require("express-validator");
 const flash = require("connect-flash");
+const logger = require("morgan");
+
+middleware.use(logger("dev"));
 
 middleware.use(bodyParser.json());
-middleware.use(bodyParser.urlencoded({extended: false}));
+middleware.use(bodyParser.urlencoded({extended: true}));
 
 // Express validator middleware
 middleware.use(expressValidator({

@@ -46,17 +46,6 @@ router.post("/add", function(req, res){
     }   
 });
 
-// get a single toilet
-router.get("/:id", (req, res)=>{
-    let id = req.params.id;
-    Toilet.findById(id, function(err, toilet){
-        if (err){
-            console.log(err);
-        }else{
-            res.render("toilet", {toilet: toilet})
-        }
-    })
-});
 
 // get to edit
 router.get("/edit/:id", function(req, res){
@@ -90,25 +79,9 @@ router.post("/edit/:id", function(req, res){
         }else{
             req.flash("success", "Toilet updated");
             console.log("Toilet updated");
-            res.redirect("/toilets/" + req.params.id)
+            res.redirect("/toilet/" + req.params.id)
         }
     })
 });
-
-//delete a toilet
-router.delete("/:id", function(req, res){
-    let query = {_id: req.params.id}
-    Toilet.remove(query, function(err){
-        if (err){
-            console.log(err);
-            return;
-        }else{
-            console.log("Toilet deleted");
-            res.send('Success');
-        }
-    })
-})
-
-
 
 module.exports = router;

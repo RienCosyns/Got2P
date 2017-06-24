@@ -3,9 +3,5 @@
     "version": "1.0.0",
     "description": "CRUD model for toilets",
     "author": "Rien Cosyns",
-    "main": "bundle.js",
-    "dependencies": {
-        "express": "^4.15.3",
-        "mongoose": "^4.10.7"
-    }
+    "main": "bundle.js"
 }

@@ -31,7 +31,7 @@ $('#upload-input').on('change', function(e){
       contentType: false,
       success: function(data){
           console.log('upload successful!\n' + data);
-          window.location.href = "/toilets/" + id
+          window.location.href = "/toilet/" + id
       },
       xhr: function() {
         // create an XMLHttpRequest
