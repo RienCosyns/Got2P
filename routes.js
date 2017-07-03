@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // import models
-et Toilet = require("toilet-viewer").model;
+t Toilet = require("toilet-viewer").model;
 let Rating = require("rating-app").model;
 
 //get home
